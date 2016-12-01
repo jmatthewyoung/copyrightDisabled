@@ -1,0 +1,94 @@
+c:\users\matthew\documents\visual studio 2015\Projects\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.exe
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.pdb
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.Properties.Resources.resources
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.csproj.GenerateResource.Cache
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.exe
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.pdb
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmMain.resources
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmInput.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.exe.config
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.exe
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.pdb
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmMain.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.Properties.Resources.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.csproj.GenerateResource.Cache
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.exe
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\GoldTeamRules.pdb
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#1.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#2.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#3.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#4.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#5.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#6.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#7.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#8.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Map\#9.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\menu.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmReport.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmCreate.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmLogin.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\crawdad.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\froglet.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\puddleterror.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\anubisath-idol.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\arcane-eye.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\baby-elderhorn.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\blue-dh.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\cerulean-moth.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\clockwork-gnome.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\coilfang-stalker.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\core-hound-pup.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\darkmoon-rabbit.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\death-adder-hatchling.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\emerald-proto-whelp.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\fluxfire-feline.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\frostworlf-ghostpup.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\grunty.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\gryphon-hatchling.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\hyacinth-macaw.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\kun-lai-runt.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\oozeling.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\rapana-whelk.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\scourged-whelpling.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\singing-sunflower.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\terrible-turnip.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\tol-vir-scarab.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\unborn-val-kyr.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\wild-jade-hatchling.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\winterspring-cub.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\world-destroyer.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmRoster.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Battle\battle.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\petselection2.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\petselection.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\playscreen.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmStart.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmPetRoster.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmPetJournal.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmForfeit.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Icons\birdcage.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\grass.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioDown.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioLeft.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioRight.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioUp.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Content\soundtrack.mp3
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\createbackground.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\menubackground.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\firstname.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\lastname.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\logo.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\password.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\username.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\obj\Debug\GoldTeamRules.frmAfterBattle.resources
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\1.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\2.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\3.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\4.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\5.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\6.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\7.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\8.png
