@@ -7,3 +7,9 @@ Disclaimer: Everything here is to be used for reference only. Many things contai
 
 Thanks,
 Matthew
+
+IF YOU ARE A STUDENT:
+If this code is used for a grade and passed off as your code, know that you are 100% responsible for getting caught with plagiarised material and that I do not condone the usage of this for that at all. This repository is to be used for reference only.
+
+IF YOU ARE A UA STUDENT:
+To create an account and login to BattlePets you need to be connected to the vpn. Visit this link to set up the VPN if you need: https://oit.ua.edu/service/vpn/
