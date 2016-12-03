@@ -49,12 +49,13 @@ namespace GoldTeamRules
                                     connection.Open();
                                     SqlCommand cmd = new SqlCommand("Select username from logins where username = @username", connection);
                                     cmd.Parameters.AddWithValue("@username", frmMain.username);
-                                    SqlDataReader reader = cmd.ExecuteReader();
-                                    if (reader.HasRows)
+                                    using (SqlDataReader reader = cmd.ExecuteReader())
                                     {
-                                        throw new ArgumentOutOfRangeException();
+                                        if (reader.HasRows)
+                                        {
+                                            throw new ArgumentOutOfRangeException();
+                                        }
                                     }
-                                    reader.Close();
                                     SqlCommand command = new SqlCommand("dbo.usp_Add_New_Person", connection);
                                     command.CommandType = CommandType.StoredProcedure;
                                     command.Parameters.AddWithValue("@firstName", tbtFName.Text);

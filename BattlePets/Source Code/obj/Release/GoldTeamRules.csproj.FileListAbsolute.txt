@@ -91,3 +91,5 @@ C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Rele
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Release\Resources\Backgrounds\Tutorial\6.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Release\Resources\Backgrounds\Tutorial\7.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Release\Resources\Backgrounds\Tutorial\8.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Release\Resources\Sprites\marioWalkingLeft.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Release\Resources\Sprites\marioWalkingRight.png

@@ -35,24 +35,26 @@ namespace GoldTeamRules
                     using (SqlCommand command = new SqlCommand(@"Select distinct battleNum from combatLog where userID = @id", connection))
                     {
                         command.Parameters.AddWithValue("@id", frmMain.userID);
-                        SqlDataReader reader = command.ExecuteReader();
-                        int numRows = 0;
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            if (reader.HasRows)
+                            int numRows = 0;
+                            while (reader.Read())
                             {
-                                list.Add(reader[0].ToString());
-                                numRows++;
+                                if (reader.HasRows)
+                                {
+                                    list.Add(reader[0].ToString());
+                                    numRows++;
+                                }
                             }
-                        }
-                        list.TrimExcess();
-                        for (int i = 0; i < numRows; i++)
-                        {
-                            cb.Items.Add(list[i]);
-                        }
-                        if (numRows > 0)
-                        {
-                            cb.SelectedIndex = 0;
+                            list.TrimExcess();
+                            for (int i = 0; i < numRows; i++)
+                            {
+                                cb.Items.Add(list[i]);
+                            }
+                            if (numRows > 0)
+                            {
+                                cb.SelectedIndex = 0;
+                            }
                         }
                     }
                 }
@@ -92,52 +94,54 @@ namespace GoldTeamRules
                     {
                         comm.Parameters.AddWithValue("@id", frmMain.userID);
                         comm.Parameters.AddWithValue("@num", cb.SelectedItem);
-                        SqlDataReader reader = comm.ExecuteReader();
-
-                        string name1 = "", name2 = "";
-                        int counter = 0;
-                        while (reader.Read())
+                        using (SqlDataReader reader = comm.ExecuteReader())
                         {
-                            if (reader.HasRows)
+
+                            string name1 = "", name2 = "";
+                            int counter = 0;
+                            while (reader.Read())
                             {
-                                if(counter == 0)
+                                if (reader.HasRows)
                                 {
-                                    DataRow dr1 = dt.NewRow();
-                                    dr1["User ID"] = "----";
-                                    dr1["Round Number"] = "START";
-                                    dr1["Timestamp"] = "----";
-                                    name1 = reader[3].ToString();
-                                    dr1["User Pet Name"] = name1;
-                                    dr1["Ability"] = "-- VS --";
-                                    dr1["Result"] = "----";
-                                    name2 = reader[6].ToString();
-                                    dr1["Target Pet Name"] = name2;
-                                    dt.Rows.Add(dr1);
+                                    if (counter == 0)
+                                    {
+                                        DataRow dr1 = dt.NewRow();
+                                        dr1["User ID"] = "----";
+                                        dr1["Round Number"] = "START";
+                                        dr1["Timestamp"] = "----";
+                                        name1 = reader[3].ToString();
+                                        dr1["User Pet Name"] = name1;
+                                        dr1["Ability"] = "-- VS --";
+                                        dr1["Result"] = "----";
+                                        name2 = reader[6].ToString();
+                                        dr1["Target Pet Name"] = name2;
+                                        dt.Rows.Add(dr1);
+                                    }
+                                    DataRow dr = dt.NewRow();
+                                    dr["User ID"] = reader[0].ToString();
+                                    dr["Round Number"] = reader[1].ToString();
+                                    dr["Timestamp"] = reader[2].ToString();
+                                    dr["User Pet Name"] = reader[3].ToString();
+                                    dr["Ability"] = reader[4].ToString();
+                                    dr["Result"] = reader[5].ToString();
+                                    dr["Target Pet Name"] = reader[6].ToString();
+                                    if (!dr.IsNull("User ID"))
+                                    {
+                                        dt.Rows.Add(dr);
+                                    }
                                 }
-                                DataRow dr = dt.NewRow();
-                                dr["User ID"] = reader[0].ToString();
-                                dr["Round Number"] = reader[1].ToString();
-                                dr["Timestamp"] = reader[2].ToString();
-                                dr["User Pet Name"] = reader[3].ToString();
-                                dr["Ability"] = reader[4].ToString();
-                                dr["Result"] = reader[5].ToString();
-                                dr["Target Pet Name"] = reader[6].ToString();
-                                if (!dr.IsNull("User ID"))
-                                {
-                                    dt.Rows.Add(dr);
-                                }
+                                counter++;
                             }
-                            counter++;
+                            DataRow dr2 = dt.NewRow();
+                            dr2["User ID"] = "----";
+                            dr2["Round Number"] = "BATTLE OVER";
+                            dr2["Timestamp"] = "----";
+                            dr2["User Pet Name"] = name1;
+                            dr2["Ability"] = "-- VS --";
+                            dr2["Result"] = "----";
+                            dr2["Target Pet Name"] = name2;
+                            dt.Rows.Add(dr2);
                         }
-                        DataRow dr2 = dt.NewRow();
-                        dr2["User ID"] = "----";
-                        dr2["Round Number"] = "BATTLE OVER";
-                        dr2["Timestamp"] = "----";
-                        dr2["User Pet Name"] = name1;
-                        dr2["Ability"] = "-- VS --";
-                        dr2["Result"] = "----";
-                        dr2["Target Pet Name"] = name2;
-                        dt.Rows.Add(dr2);
                     }
                 }
             }

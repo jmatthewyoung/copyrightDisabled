@@ -50,30 +50,32 @@ namespace GoldTeamRules
                 command.Parameters.AddWithValue("@petID", id);
                 command.Parameters.AddWithValue("@abilityNum", num);
                 command.Parameters.AddWithValue("@userID", frmMain.userID);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        abilityID = Int32.Parse(reader[0].ToString());                                       
+                        while (reader.Read())
+                        {
+                            abilityID = Int32.Parse(reader[0].ToString());
+                        }
                     }
                 }
-                reader.Close();  
                 command = new SqlCommand("dbo.usp_Load_Ability", connection);
                 command.Parameters.Clear();
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@AbilityID", abilityID);
-                reader = command.ExecuteReader();
-                if (reader.HasRows)
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        name = reader[0].ToString();
-                        damage = Int32.Parse(reader[1].ToString());
-                        accuracy = Int32.Parse(reader[2].ToString());                       
+                        while (reader.Read())
+                        {
+                            name = reader[0].ToString();
+                            damage = Int32.Parse(reader[1].ToString());
+                            accuracy = Int32.Parse(reader[2].ToString());
+                        }
                     }
-                }
-                reader.Close();        
+                }  
             }
         }
 
@@ -87,17 +89,18 @@ namespace GoldTeamRules
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@petID", id);
                 command.Parameters.AddWithValue("@abilityNum", num);
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        name = reader[0].ToString();
-                        damage = Int32.Parse(reader[1].ToString());
-                        accuracy = Int32.Parse(reader[2].ToString());
+                        while (reader.Read())
+                        {
+                            name = reader[0].ToString();
+                            damage = Int32.Parse(reader[1].ToString());
+                            accuracy = Int32.Parse(reader[2].ToString());
+                        }
                     }
-                }
-                reader.Close();              
+                }             
             }
         }
 

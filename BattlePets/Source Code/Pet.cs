@@ -14,10 +14,10 @@ namespace GoldTeamRules
     {
         private int petID;
         private string name;
-        private string type;      
+        private string type;
         private string rarity;
         private int baseHP;
-        private int hpScale;             
+        private int hpScale;
         private int baseSpeed;
         private int speedScale;
         private int baseAtk;
@@ -28,6 +28,7 @@ namespace GoldTeamRules
         private Ability selectedAbility;
         public static int seed;
         private int rosterSlot;
+        private int favorite;
 
         public enum RarityLevel
         {
@@ -75,7 +76,7 @@ namespace GoldTeamRules
                 Random r = new Random(seed * this.petID);
                 int top = 0;
                 int bottom = 0;
-                for(int i = 0; i < frmMain.activeList.Count; i++)
+                for (int i = 0; i < frmMain.activeList.Count; i++)
                 {
                     top += frmMain.activeList[i].currentXP;
                 }
@@ -83,7 +84,7 @@ namespace GoldTeamRules
                 top += 10000;
                 bottom = top;
                 bottom -= 20000;
-                if(bottom < 500)
+                if (bottom < 500)
                 {
                     bottom = 501;
                 }
@@ -98,51 +99,8 @@ namespace GoldTeamRules
             }
         }
 
-        //Create New Pet
-        public Pet(int petID, int currentXP)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@petID", petID);
-                    command.Parameters.AddWithValue("@numRows", new Int32());
-                    using (SqlDataReader datareader = command.ExecuteReader())
-                    {
-                        if (datareader.HasRows)
-                        {
-                            while (datareader.Read())
-                            {
-                                this.petID = petID;
-                                this.name = datareader[0].ToString();
-                                this.type = datareader[1].ToString();
-                                this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
-                                this.baseHP = Int32.Parse(datareader[3].ToString());
-                                this.hpScale = Int32.Parse(datareader[4].ToString());
-                                this.baseSpeed = Int32.Parse(datareader[5].ToString());
-                                this.speedScale = Int32.Parse(datareader[6].ToString());
-                                this.baseAtk = Int32.Parse(datareader[7].ToString());
-                                this.atkScale = Int32.Parse(datareader[8].ToString());
-                                this.DisplayImage = frmMain.petImages[this.name];
-                            }
-                        }
-                    }
-                }
-                this.currentXP = currentXP;
-                currentHP = HP;
-                FillNewAbilities();
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-        }
-
         //Load Pet
-        public Pet(int petID, int currentXP, int currentHP, int? rosterSlot)
+        public Pet(int petID, int currentXP, int currentHP, int? rosterSlot, int favorite)
         {
             try
             {
@@ -180,6 +138,7 @@ namespace GoldTeamRules
                 {
                     this.rosterSlot = (int)rosterSlot;
                 }
+                this.favorite = favorite;
                 FillAbilities();
             }
             catch (Exception e1)
@@ -246,7 +205,11 @@ namespace GoldTeamRules
             }
         }
 
-
+        public int Favorite
+        {
+            get { return favorite; }
+            set { favorite = value; }
+        }
 
         private string GetRarity(int rarity)
         {

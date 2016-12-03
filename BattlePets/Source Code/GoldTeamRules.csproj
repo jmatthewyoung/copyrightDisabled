@@ -325,16 +325,22 @@
     <Content Include="Resources\Backgrounds\Menu\menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Sprites\marioDown.png">
+    <Content Include="Resources\Sprites\marioLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Sprites\marioLeft.png">
+    <Content Include="Resources\Sprites\marioUp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sprites\marioRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Sprites\marioUp.png">
+    <Content Include="Resources\Sprites\marioDown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sprites\marioWalkingLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sprites\marioWalkingRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sprites\oozeling.png">

@@ -75,7 +75,6 @@ C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debu
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioLeft.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioRight.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioUp.png
-C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Content\soundtrack.mp3
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\createbackground.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Menu\menubackground.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Text\firstname.png
@@ -92,3 +91,6 @@ C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debu
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\6.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\7.png
 C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Backgrounds\Tutorial\8.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioWalkingLeft.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Resources\Sprites\marioWalkingRight.png
+C:\Users\Matthew\Source\Workspaces\GoldTeam\GoldTeamRules\GoldTeamRules\bin\Debug\Content\soundtrack.mp3

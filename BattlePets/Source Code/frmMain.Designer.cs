@@ -46,6 +46,7 @@
             this.tutorialScreen = new System.Windows.Forms.TabPage();
             healTimer = new System.Windows.Forms.Timer(this.components);
             this.countdownTimer = new System.Windows.Forms.Timer(this.components);
+            this.animationTimer = new System.Windows.Forms.Timer(this.components);
             this.tc.SuspendLayout();
             this.mapScreen.SuspendLayout();
             this.SuspendLayout();
@@ -119,11 +120,12 @@
             // 
             // btnPause
             // 
+            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.Location = new System.Drawing.Point(0, 0);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(47, 23);
+            this.btnPause.Size = new System.Drawing.Size(22, 23);
             this.btnPause.TabIndex = 0;
-            this.btnPause.Text = "Pause";
+            this.btnPause.Text = "||";
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -168,6 +170,11 @@
             this.countdownTimer.Interval = 1000;
             this.countdownTimer.Tick += new System.EventHandler(this.countdownTimer_Tick);
             // 
+            // animationTimer
+            // 
+            this.animationTimer.Interval = 150;
+            this.animationTimer.Tick += new System.EventHandler(this.animationTimer_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,7 +193,6 @@
             this.tc.ResumeLayout(false);
             this.mapScreen.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -205,6 +211,7 @@
         private System.Windows.Forms.TabPage tutorialScreen;
         private System.Windows.Forms.Timer countdownTimer;
         private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Timer animationTimer;
         public static System.Windows.Forms.Timer healTimer;
     }
 }

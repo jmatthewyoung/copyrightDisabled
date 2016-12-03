@@ -13,7 +13,7 @@ namespace GoldTeamRules
     public partial class frmPetJournal : Form
     {
         internal static List<Pet> currentList;
-        
+
         public frmPetJournal()
         {
             InitializeComponent();
@@ -79,7 +79,7 @@ namespace GoldTeamRules
             //frmMain.healTimer.Enabled = true;
             btnHeal.Enabled = false;
             btnHeal.Text = "Heal (ON COOLDOWN)";
-            for(int i = 0; i < frmMain.petList.Count; i++)
+            for (int i = 0; i < frmMain.petList.Count; i++)
             {
                 frmMain.petList[i].CurrentHP = frmMain.petList[i].HP;
             }
@@ -89,9 +89,9 @@ namespace GoldTeamRules
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            for(int i = 0; i < currentList.Count; i++)
+            for (int i = 0; i < currentList.Count; i++)
             {
-                if(currentList[i].RosterSlot == 999)
+                if (currentList[i].RosterSlot == 999)
                 {
                     currentList[i].RosterSlot = -1;
                 }
@@ -106,7 +106,7 @@ namespace GoldTeamRules
             currentList.TrimExcess();
             for (int i = 0; i < currentList.Count; i++)
             {
-                for(int j = i + 1; j < currentList.Count; j++)
+                for (int j = i + 1; j < currentList.Count; j++)
                 {
                     if (currentList[j].RosterSlot == -1)
                     {
@@ -128,7 +128,7 @@ namespace GoldTeamRules
             {
                 petJournal.Items.Add(currentList[i].ToString());
             }
-            
+
             petJournal.SelectedIndex = 0;
             if (!frmMain.healTimer.Enabled)
             {

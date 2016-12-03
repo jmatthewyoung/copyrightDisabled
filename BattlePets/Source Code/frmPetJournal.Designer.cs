@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPetJournal));
             this.petJournal = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.setFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSlot1 = new System.Windows.Forms.Label();
             this.lblSlot2 = new System.Windows.Forms.Label();
             this.lblSlot3 = new System.Windows.Forms.Label();
@@ -57,11 +63,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label11 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.SuspendLayout();
             // 
             // petJournal
             // 
+            this.petJournal.ContextMenuStrip = this.contextMenuStrip1;
             this.petJournal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.petJournal.FormattingEnabled = true;
             this.petJournal.ItemHeight = 20;
@@ -72,6 +80,40 @@
             this.petJournal.TabStop = false;
             this.petJournal.UseTabStops = false;
             this.petJournal.SelectedIndexChanged += new System.EventHandler(this.petJournal_SelectedIndexChanged_1);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setFavoriteToolStripMenuItem,
+            this.clearFavoriteToolStripMenuItem,
+            this.releaseToolStripMenuItem,
+            this.renameToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(147, 92);
+            // 
+            // setFavoriteToolStripMenuItem
+            // 
+            this.setFavoriteToolStripMenuItem.Name = "setFavoriteToolStripMenuItem";
+            this.setFavoriteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.setFavoriteToolStripMenuItem.Text = "Set Favorite";
+            // 
+            // clearFavoriteToolStripMenuItem
+            // 
+            this.clearFavoriteToolStripMenuItem.Name = "clearFavoriteToolStripMenuItem";
+            this.clearFavoriteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.clearFavoriteToolStripMenuItem.Text = "Clear Favorite";
+            // 
+            // releaseToolStripMenuItem
+            // 
+            this.releaseToolStripMenuItem.Name = "releaseToolStripMenuItem";
+            this.releaseToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.releaseToolStripMenuItem.Text = "Release";
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.renameToolStripMenuItem.Text = "Rename";
             // 
             // lblSlot1
             // 
@@ -377,6 +419,7 @@
             this.Text = "frmPetJournal";
             this.Load += new System.EventHandler(this.frmPetJournal_Load_1);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPetJournal_KeyDown);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -411,6 +454,11 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem setFavoriteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearFavoriteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem releaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
         public static System.Windows.Forms.Button btnHeal;
     }
 }

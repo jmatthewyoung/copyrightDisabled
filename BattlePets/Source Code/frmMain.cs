@@ -227,6 +227,9 @@ namespace GoldTeamRules
             images["playerLeft"] = Image.FromFile(@"Resources\Sprites\marioLeft.png");
             images["playerUp"] = Image.FromFile(@"Resources\Sprites\marioUp.png");
             images["playerDown"] = Image.FromFile(@"Resources\Sprites\marioDown.png");
+            images["playerWalkingLeft"] = Image.FromFile(@"Resources\Sprites\marioWalkingLeft.png");
+            images["playerWalkingRight"] = Image.FromFile(@"Resources\Sprites\marioWalkingRight.png");
+
 
             //Tutorial Images
             images["tutorial1"] = Image.FromFile(@"Resources\Backgrounds\Tutorial\1.png");
@@ -286,49 +289,57 @@ namespace GoldTeamRules
                         connection.Open();
                         SqlCommand command = new SqlCommand("SELECT password, userID, wins, losses FROM dbo.Logins WHERE username = @Value", connection);
                         command.Parameters.AddWithValue("@Value", username);
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                if (password == reader.GetString(0))
+                                while (reader.Read())
                                 {
-                                    userID = reader.GetInt32(1);
-                                    wins = reader.GetInt32(2);
-                                    losses = reader.GetInt32(3);
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Login unsuccessful.");
-                                    Application.Restart();
+                                    if (password == reader.GetString(0))
+                                    {
+                                        userID = reader.GetInt32(1);
+                                        wins = reader.GetInt32(2);
+                                        losses = reader.GetInt32(3);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Login unsuccessful.");
+                                        Application.Restart();
+                                    }
                                 }
                             }
+                            else
+                            {
+                                MessageBox.Show("Login unsuccessful.");
+                                Application.Restart();
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Login unsuccessful.");
-                            Application.Restart();
-                        }
-                        reader.Close();
                         command = new SqlCommand("dbo.usp_Load_CapturedPet", connection);
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@userID", userID);
                         command.Parameters.AddWithValue("@numRows", totalPets);
-                        reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                int petID = Int32.Parse(reader[0].ToString());
-                                int currentXP = Int32.Parse(reader[1].ToString());
-                                int currentHP = Int32.Parse(reader[2].ToString());
-                                int rosterSlot = -1;
-                                if (reader[3] != null)
+                                while (reader.Read())
                                 {
-                                    rosterSlot = Int32.Parse(reader[3].ToString());
+                                    int petID = Int32.Parse(reader[0].ToString());
+                                    int currentXP = Int32.Parse(reader[1].ToString());
+                                    int currentHP = Int32.Parse(reader[2].ToString());
+                                    int rosterSlot = -1;
+                                    if (reader[3] != null)
+                                    {
+                                        rosterSlot = Int32.Parse(reader[3].ToString());
+                                    }
+                                    int favorite = 0;
+                                    if(reader[4] != null)
+                                    {
+                                        favorite = Int32.Parse(reader[4].ToString());
+                                    }
+                                    Pet pet = new Pet(petID, currentXP, currentHP, rosterSlot, favorite);
+                                    petList.Add(pet);
                                 }
-                                Pet pet = new Pet(petID, currentXP, currentHP, rosterSlot);
-                                petList.Add(pet);
                             }
                         }
                     }
@@ -372,6 +383,7 @@ namespace GoldTeamRules
             messages = new List<string>();
             afterBattleMessages = new List<string>();
             gameLoop.Enabled = true;
+            animationTimer.Enabled = true;
 
             battleScreen.BackgroundImage = images["battle"];
             menuScreen.BackgroundImage = images["menu"];
@@ -613,12 +625,14 @@ namespace GoldTeamRules
                     using (SqlCommand command = new SqlCommand("SELECT * FROM CombatLog WHERE userID = @userID", connection))
                     {
                         command.Parameters.AddWithValue("@userID", userID);
-                        SqlDataReader reader = command.ExecuteReader();
-                        while (reader.Read())
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            if (reader.HasRows)
+                            while (reader.Read())
                             {
-                                battleNum++;
+                                if (reader.HasRows)
+                                {
+                                    battleNum++;
+                                }
                             }
                         }
                     }
@@ -1411,7 +1425,6 @@ namespace GoldTeamRules
                                 {
                                     using (System.Drawing.Brush enemyNameBrush = new SolidBrush(enemy.GetColor()))
                                     {
-
                                         g.DrawString("Name: ", uiFont, uiBrush, new Point(56, 87)); // enemy
                                         g.DrawString(enemy.Name, littleFont, enemyNameBrush, new Point(150, 89));
                                         g.DrawString("HP:", uiFont, uiBrush, new Point(56, 125));
@@ -1521,7 +1534,6 @@ namespace GoldTeamRules
                     }
 
                 }
-
                 if (e.KeyCode.Equals(Keys.S) || e.KeyData.Equals(Keys.Down))
                 {
                     menuSelection++;
@@ -2098,6 +2110,12 @@ namespace GoldTeamRules
                     if (e.KeyCode.Equals(Keys.Enter))
                     {
                         tc.SelectedIndex = 0;
+                        if (!gameLoop.Enabled)
+                        {
+                            collisionChecker.Enabled = true;
+                            petMover.Enabled = true;
+                            gameLoop.Enabled = true;
+                        }
                     }
                 }
             }
@@ -2152,23 +2170,53 @@ namespace GoldTeamRules
             gameLoop.Enabled = false;
         }
 
+        private void animationTimer_Tick(object sender, EventArgs e)
+        {
+            if (movingDirectionLR == (int)Moving.Left)
+            {
+                if (p.DisplayImage.Equals(images["playerLeft"]))
+                {
+                    p.DisplayImage = images["playerWalkingLeft"];
+                }
+                else if (p.DisplayImage.Equals(images["playerWalkingLeft"]))
+                {
+                    p.DisplayImage = images["playerLeft"];
+                }
+            }
+            else if (movingDirectionLR == (int)Moving.Right)
+            {
+                if (p.DisplayImage.Equals(images["playerRight"]))
+                {
+                    p.DisplayImage = images["playerWalkingRight"];
+                }
+                else if (p.DisplayImage.Equals(images["playerWalkingRight"]))
+                {
+                    p.DisplayImage = images["playerRight"];
+                }
+            }
+        }
+
         private void tc_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode.Equals(Keys.W) || e.KeyData.Equals(Keys.Up))
             {
                 movingDirectionUD = (int)Moving.Stop;
+                p.DisplayImage = images["playerUp"];
             }
             else if (e.KeyCode.Equals(Keys.S) || e.KeyData.Equals(Keys.Down))
             {
                 movingDirectionUD = (int)Moving.Stop;
+                p.DisplayImage = images["playerDown"];
             }
             else if (e.KeyCode.Equals(Keys.A) || e.KeyData.Equals(Keys.Left))
             {
                 movingDirectionLR = (int)Moving.Stop;
+                p.DisplayImage = images["playerLeft"];
             }
             else if (e.KeyCode.Equals(Keys.D) || e.KeyData.Equals(Keys.Right))
             {
                 movingDirectionLR = (int)Moving.Stop;
+                p.DisplayImage = images["playerRight"];
             }
         }
 
@@ -2233,6 +2281,7 @@ namespace GoldTeamRules
                     messages.Add("The attack missed!");
                 }
 
+                parentMenu = false;
                 displayDamage = true;
                 damageDisplayer.Enabled = true;
                 messageSelection = 0;
