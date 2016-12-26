@@ -40,168 +40,237 @@ namespace GoldTeamRules
             Legendary
         }
 
+        public Pet()
+        {
+            this.petID = 0;
+            this.name = "Magical Crawdad";
+            this.type = "Aquatic";
+            this.rarity = "Rare";
+            this.baseHP = 999;
+            this.hpScale = 10;
+            this.baseSpeed = 999;
+            this.speedScale = 10;
+            this.baseAtk = 999;
+            this.atkScale = 10;
+            this.DisplayImage = frmMain.petImages[this.name];
+            currentHP = HP;
+            currentXP = 10000;
+            FillAbilities();
+        }
+
         //Create Wild Pet
         public Pet(int petID)
         {
-            try
+            if (!frmMain.testModeActive)
             {
-                using (SqlConnection connection = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
+                try
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@petID", petID);
-                    command.Parameters.AddWithValue("@numRows", new Int32());
-                    using (SqlDataReader datareader = command.ExecuteReader())
+                    using (SqlConnection connection = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
                     {
-                        if (datareader.HasRows)
+                        connection.Open();
+                        SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@petID", petID);
+                        command.Parameters.AddWithValue("@numRows", new Int32());
+                        using (SqlDataReader datareader = command.ExecuteReader())
                         {
-                            while (datareader.Read())
+                            if (datareader.HasRows)
                             {
-                                this.petID = petID;
-                                this.name = datareader[0].ToString();
-                                this.type = datareader[1].ToString();
-                                this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
-                                this.baseHP = Int32.Parse(datareader[3].ToString());
-                                this.hpScale = Int32.Parse(datareader[4].ToString());
-                                this.baseSpeed = Int32.Parse(datareader[5].ToString());
-                                this.speedScale = Int32.Parse(datareader[6].ToString());
-                                this.baseAtk = Int32.Parse(datareader[7].ToString());
-                                this.atkScale = Int32.Parse(datareader[8].ToString());
-                                this.DisplayImage = frmMain.petImages[this.name];
+                                while (datareader.Read())
+                                {
+                                    this.petID = petID;
+                                    this.name = datareader[0].ToString();
+                                    this.type = datareader[1].ToString();
+                                    this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
+                                    this.baseHP = Int32.Parse(datareader[3].ToString());
+                                    this.hpScale = Int32.Parse(datareader[4].ToString());
+                                    this.baseSpeed = Int32.Parse(datareader[5].ToString());
+                                    this.speedScale = Int32.Parse(datareader[6].ToString());
+                                    this.baseAtk = Int32.Parse(datareader[7].ToString());
+                                    this.atkScale = Int32.Parse(datareader[8].ToString());
+                                    this.DisplayImage = frmMain.petImages[this.name];
+                                }
                             }
                         }
                     }
+                    Random r = new Random(seed * this.petID);
+                    int top = 0;
+                    int bottom = 0;
+                    for (int i = 0; i < frmMain.activeList.Count; i++)
+                    {
+                        top += frmMain.activeList[i].currentXP;
+                    }
+                    top /= 3;
+                    top += 10000;
+                    bottom = top;
+                    bottom -= 20000;
+                    if (bottom < 500)
+                    {
+                        bottom = 501;
+                    }
+                    currentXP = r.Next(bottom, top);
+                    currentHP = HP;
+                    rosterSlot = -1;
+                    FillNewAbilities();
                 }
-                Random r = new Random(seed * this.petID);
-                int top = 0;
-                int bottom = 0;
-                for (int i = 0; i < frmMain.activeList.Count; i++)
+                catch (Exception e1)
                 {
-                    top += frmMain.activeList[i].currentXP;
+                    MessageBox.Show(e1.Message);
                 }
-                top /= 3;
-                top += 10000;
-                bottom = top;
-                bottom -= 20000;
-                if (bottom < 500)
-                {
-                    bottom = 501;
-                }
-                currentXP = r.Next(bottom, top);
-                currentHP = HP;
-                rosterSlot = -1;
-                FillNewAbilities();
             }
-            catch (Exception e1)
+            else
             {
-                MessageBox.Show(e1.Message);
+                this.petID = 0;
+                this.name = "Magical Crawdad";
+                this.type = "Aquatic";
+                this.rarity = "Rare";
+                this.baseHP = 999;
+                this.hpScale = 10;
+                this.baseSpeed = 999;
+                this.speedScale = 10;
+                this.baseAtk = 999;
+                this.atkScale = 10;
+                this.DisplayImage = frmMain.petImages[this.name];
             }
         }
 
         //Load Pet
         public Pet(int petID, int currentXP, int currentHP, int? rosterSlot, int favorite)
         {
-            try
+            if (!frmMain.testModeActive)
             {
-                using (SqlConnection connection = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
+                try
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@petID", petID);
-                    command.Parameters.AddWithValue("@numRows", new Int32());
-                    using (SqlDataReader datareader = command.ExecuteReader())
+                    using (SqlConnection connection = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
                     {
-                        if (datareader.HasRows)
+                        connection.Open();
+                        SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@petID", petID);
+                        command.Parameters.AddWithValue("@numRows", new Int32());
+                        using (SqlDataReader datareader = command.ExecuteReader())
                         {
-                            while (datareader.Read())
+                            if (datareader.HasRows)
                             {
-                                this.petID = petID;
-                                this.name = datareader[0].ToString();
-                                this.type = datareader[1].ToString();
-                                this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
-                                this.baseHP = Int32.Parse(datareader[3].ToString());
-                                this.hpScale = Int32.Parse(datareader[4].ToString());
-                                this.baseSpeed = Int32.Parse(datareader[5].ToString());
-                                this.speedScale = Int32.Parse(datareader[6].ToString());
-                                this.baseAtk = Int32.Parse(datareader[7].ToString());
-                                this.atkScale = Int32.Parse(datareader[8].ToString());
-                                this.DisplayImage = frmMain.petImages[this.name];
+                                while (datareader.Read())
+                                {
+                                    this.petID = petID;
+                                    this.name = datareader[0].ToString();
+                                    this.type = datareader[1].ToString();
+                                    this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
+                                    this.baseHP = Int32.Parse(datareader[3].ToString());
+                                    this.hpScale = Int32.Parse(datareader[4].ToString());
+                                    this.baseSpeed = Int32.Parse(datareader[5].ToString());
+                                    this.speedScale = Int32.Parse(datareader[6].ToString());
+                                    this.baseAtk = Int32.Parse(datareader[7].ToString());
+                                    this.atkScale = Int32.Parse(datareader[8].ToString());
+                                    this.DisplayImage = frmMain.petImages[this.name];
+                                }
                             }
                         }
                     }
+                    this.currentHP = currentHP;
+                    this.currentXP = currentXP;
+                    if (rosterSlot != null)
+                    {
+                        this.rosterSlot = (int)rosterSlot;
+                    }
+                    this.favorite = favorite;
+                    FillAbilities();
                 }
-                this.currentHP = currentHP;
-                this.currentXP = currentXP;
-                if (rosterSlot != null)
+
+                catch (Exception e1)
                 {
-                    this.rosterSlot = (int)rosterSlot;
+                    MessageBox.Show(e1.Message);
                 }
-                this.favorite = favorite;
-                FillAbilities();
             }
-            catch (Exception e1)
+            else
             {
-                MessageBox.Show(e1.Message);
+                this.petID = 0;
+                this.name = "MAGICAL CRAWDAD";
+                this.type = "Aquatic";
+                this.rarity = "Rare";
+                this.baseHP = 999;
+                this.hpScale = 10;
+                this.baseSpeed = 999;
+                this.speedScale = 10;
+                this.baseAtk = 999;
+                this.atkScale = 10;
+                this.DisplayImage = frmMain.petImages[this.name];
             }
-        }
+}
 
         //Starting Pet
         public Pet(int petID, int currentXP, int rosterSlot, bool a)
         {
             string _cnDB = GoldTeamRules.Properties.Settings.Default.cnDb;
-
-            try
+            if (!frmMain.testModeActive)
             {
-                using (SqlConnection connection = new SqlConnection(_cnDB))
+                try
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@petID", petID);
-                    command.Parameters.AddWithValue("@numRows", new Int32());
-                    using (SqlDataReader datareader = command.ExecuteReader())
+                    using (SqlConnection connection = new SqlConnection(_cnDB))
                     {
-                        if (datareader.HasRows)
+                        connection.Open();
+                        SqlCommand command = new SqlCommand("dbo.usp_Load_Pet", connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@petID", petID);
+                        command.Parameters.AddWithValue("@numRows", new Int32());
+                        using (SqlDataReader datareader = command.ExecuteReader())
                         {
-                            while (datareader.Read())
+                            if (datareader.HasRows)
                             {
-                                this.petID = petID;
-                                this.name = datareader[0].ToString();
-                                this.type = datareader[1].ToString();
-                                this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
-                                this.baseHP = Int32.Parse(datareader[3].ToString());
-                                this.hpScale = Int32.Parse(datareader[4].ToString());
-                                this.baseSpeed = Int32.Parse(datareader[5].ToString());
-                                this.speedScale = Int32.Parse(datareader[6].ToString());
-                                this.baseAtk = Int32.Parse(datareader[7].ToString());
-                                this.atkScale = Int32.Parse(datareader[8].ToString());
-                                this.DisplayImage = frmMain.petImages[this.name];
+                                while (datareader.Read())
+                                {
+                                    this.petID = petID;
+                                    this.name = datareader[0].ToString();
+                                    this.type = datareader[1].ToString();
+                                    this.rarity = GetRarity(Int32.Parse(datareader[2].ToString()));
+                                    this.baseHP = Int32.Parse(datareader[3].ToString());
+                                    this.hpScale = Int32.Parse(datareader[4].ToString());
+                                    this.baseSpeed = Int32.Parse(datareader[5].ToString());
+                                    this.speedScale = Int32.Parse(datareader[6].ToString());
+                                    this.baseAtk = Int32.Parse(datareader[7].ToString());
+                                    this.atkScale = Int32.Parse(datareader[8].ToString());
+                                    this.DisplayImage = frmMain.petImages[this.name];
+                                }
                             }
                         }
+
+                        command = new SqlCommand("dbo.usp_add_New_CapturedPet", connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@userID", frmMain.userID);
+                        command.Parameters.AddWithValue("@petID", petID);
+                        command.Parameters.AddWithValue("@currentXP", currentXP);
+                        command.Parameters.AddWithValue("@currentHP", HP);
+                        command.Parameters.AddWithValue("@rosterSlot", rosterSlot);
+                        command.ExecuteNonQuery();
+
+                        this.currentHP = 10000;
+                        this.currentXP = currentXP;
+                        this.rosterSlot = (int)rosterSlot;
+
+                        FillAbilities();
+                        frmMain.petList.Add(this);
                     }
-
-                    command = new SqlCommand("dbo.usp_add_New_CapturedPet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@userID", frmMain.userID);
-                    command.Parameters.AddWithValue("@petID", petID);
-                    command.Parameters.AddWithValue("@currentXP", currentXP);
-                    command.Parameters.AddWithValue("@currentHP", HP);
-                    command.Parameters.AddWithValue("@rosterSlot", rosterSlot);
-                    command.ExecuteNonQuery();
-
-                    this.currentHP = 10000;
-                    this.currentXP = currentXP;
-                    this.rosterSlot = (int)rosterSlot;
-
-                    FillAbilities();
-                    frmMain.petList.Add(this);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message.ToString());
                 }
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show(e.Message.ToString());
+                this.petID = 0;
+                this.name = "MAGICAL CRAWDAD";
+                this.type = "Aquatic";
+                this.rarity = "Rare";
+                this.baseHP = 999;
+                this.hpScale = 10;
+                this.baseSpeed = 999;
+                this.speedScale = 10;
+                this.baseAtk = 999;
+                this.atkScale = 10;
+                this.DisplayImage = frmMain.petImages[this.name];
             }
         }
 

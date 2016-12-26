@@ -1,1 +1,1 @@
-The server is down at the moment. Expect it to be running around January.
+The web server is down at the moment. Testing modes have been made available, although features are limited.

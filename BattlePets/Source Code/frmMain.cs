@@ -105,6 +105,7 @@ namespace GoldTeamRules
         internal static List<Pet> activeList;
         internal static List<string> afterBattleMessages;
         private MediaPlayer mp;
+        public static bool testModeActive = false;
 
         public enum Moving
         {
@@ -354,6 +355,19 @@ namespace GoldTeamRules
             {
                 tc.SelectedIndex = 3;
             }
+            else if(result == DialogResult.Ignore)
+            {
+                userID = 999;
+                testModeActive = true;
+                tc.SelectedIndex = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    Pet p = new Pet();
+                    p.RosterSlot = i + 1;
+                    activeList.Add(p);
+                    petList.Add(p);
+                }
+            }           
             else
             {
                 Environment.Exit(0);
@@ -619,19 +633,22 @@ namespace GoldTeamRules
             battleNum = 1;
             try
             {
-                using(SqlConnection connection = new SqlConnection(_cndb))
+                if (!testModeActive)
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand("SELECT * FROM CombatLog WHERE userID = @userID", connection))
+                    using (SqlConnection connection = new SqlConnection(_cndb))
                     {
-                        command.Parameters.AddWithValue("@userID", userID);
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand("SELECT * FROM CombatLog WHERE userID = @userID", connection))
                         {
-                            while (reader.Read())
+                            command.Parameters.AddWithValue("@userID", userID);
+                            using (SqlDataReader reader = command.ExecuteReader())
                             {
-                                if (reader.HasRows)
+                                while (reader.Read())
                                 {
-                                    battleNum++;
+                                    if (reader.HasRows)
+                                    {
+                                        battleNum++;
+                                    }
                                 }
                             }
                         }
@@ -939,7 +956,10 @@ namespace GoldTeamRules
                             damageDisplayer.Enabled = false;
                             gameOver = true;
                             losses++;
-                            SaveStats();
+                            if (!testModeActive)
+                            {
+                                SaveStats();
+                            }
                             afterBattleMessages.Clear();
                             afterBattleMessages.Add("All your pets ran out of HP!|Heal your pets and get back to fighting!");
                             frmAfterBattle frm = new frmAfterBattle();
@@ -957,15 +977,21 @@ namespace GoldTeamRules
 
             if (gameOver)
             {
-                SavePets();
-                SaveBattleLog();
+                if (!testModeActive)
+                {
+                    SavePets();
+                    SaveBattleLog();
+                }
                 
                 if (hasWon)
                 {                   
                     gameOver = false;
                     hasWon = false;
                     wins++;
-                    SaveStats();
+                    if (!testModeActive)
+                    {
+                        SaveStats();
+                    }
                     displayDamage = false;
                     damageDisplayer.Enabled = false;
                     wildPets[enemyIndex].Location = new Point(10000, 10000);
@@ -1555,34 +1581,45 @@ namespace GoldTeamRules
                 {
                     if (menuSelection == (int)MenuSelection.PlayerStats)
                     {
-                        try
+                        if (!testModeActive)
                         {
-                            using(SqlConnection conn = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
+                            try
                             {
-                                conn.Open();
-                                using(SqlCommand command = new SqlCommand("Select wins, losses From Logins Where UserID = @id", conn))
+                                using (SqlConnection conn = new SqlConnection(GoldTeamRules.Properties.Settings.Default.cnDb))
                                 {
-                                    command.Parameters.Clear();
-                                    command.Parameters.AddWithValue("@id", userID);
-                                    using (SqlDataReader reader = command.ExecuteReader())
+                                    conn.Open();
+                                    using (SqlCommand command = new SqlCommand("Select wins, losses From Logins Where UserID = @id", conn))
                                     {
-                                        while (reader.Read())
+                                        command.Parameters.Clear();
+                                        command.Parameters.AddWithValue("@id", userID);
+                                        using (SqlDataReader reader = command.ExecuteReader())
                                         {
-                                            if (reader.HasRows)
+                                            while (reader.Read())
                                             {
-                                                afterBattleMessages.Clear();
-                                                afterBattleMessages.Add("Your record is " + reader[0] + "-" + reader[1] + ".");
-                                                frmAfterBattle frm = new frmAfterBattle();
-                                                frm.ShowDialog();
+                                                if (reader.HasRows)
+                                                {
+                                                    afterBattleMessages.Clear();
+                                                    afterBattleMessages.Add("Your record is " + reader[0] + "-" + reader[1] + ".");
+                                                    frmAfterBattle frm = new frmAfterBattle();
+                                                    frm.ShowDialog();
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
+
+                            catch (Exception e1)
+                            {
+                                MessageBox.Show(e1.Message.ToString());
+                            }
                         }
-                        catch(Exception e1)
+                        else
                         {
-                            MessageBox.Show(e1.Message.ToString());
+                            afterBattleMessages.Clear();
+                            afterBattleMessages.Add("Player stats requires a server connection.");
+                            frmAfterBattle frm = new frmAfterBattle();
+                            frm.ShowDialog();
                         }
                     }
                     if (menuSelection == (int)MenuSelection.ViewPets)
@@ -1590,7 +1627,10 @@ namespace GoldTeamRules
                         frmPetJournal frm = new frmPetJournal();
                         frm.ShowDialog();
                         Focus();
-                        SavePets();
+                        if (!testModeActive)
+                        {
+                            SavePets();
+                        }
                     }
                     if (menuSelection == (int)MenuSelection.EditRoster)
                     {
@@ -1619,15 +1659,28 @@ namespace GoldTeamRules
                     }
                     if (menuSelection == (int)MenuSelection.Log)
                     {
-                        frmReport report = new frmReport();
-                        report.ShowDialog();
+                        if (!testModeActive)
+                        {
+                            frmReport report = new frmReport();
+                            report.ShowDialog();
+                        }
+                        else
+                        {
+                            afterBattleMessages.Clear();
+                            afterBattleMessages.Add("Combat log requires a server connection.");
+                            frmAfterBattle frm = new frmAfterBattle();
+                            frm.ShowDialog();
+                        }
                     }
                     if (menuSelection == (int)MenuSelection.Exit)
                     {
                         //Saving to Database
-                        SavePets();
-                        SaveBattleLog();
-                        SaveStats();
+                        if (!testModeActive)
+                        {
+                            SavePets();
+                            SaveBattleLog();
+                            SaveStats();
+                        }
                         this.Close();
                     }
                     if (menuSelection == (int)MenuSelection.Tutorial)
@@ -1945,7 +1998,10 @@ namespace GoldTeamRules
 
                         messages.TrimExcess();
 
-                        SavePets();
+                        if (!testModeActive)
+                        {
+                            SavePets();
+                        }
                         displayDamage = true;
                         damageDisplayer.Enabled = true;
 
@@ -2125,24 +2181,27 @@ namespace GoldTeamRules
         {
             string _cnDB = GoldTeamRules.Properties.Settings.Default.cnDb;
 
-            try
+            if (!testModeActive)
             {
-                using (SqlConnection connection = new SqlConnection(_cnDB))
+                try
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("dbo.usp_Add_New_CapturedPet", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@userID", userID);
-                    command.Parameters.AddWithValue("@petID", enemy.PetID);
-                    command.Parameters.AddWithValue("@currentXP", enemy.CurrentXP);
-                    command.Parameters.AddWithValue("@currentHP", enemy.CurrentHP);
-                    command.Parameters.AddWithValue("@rosterSlot", enemy.RosterSlot);
-                    int numRows = command.ExecuteNonQuery();
+                    using (SqlConnection connection = new SqlConnection(_cnDB))
+                    {
+                        connection.Open();
+                        SqlCommand command = new SqlCommand("dbo.usp_Add_New_CapturedPet", connection);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@userID", userID);
+                        command.Parameters.AddWithValue("@petID", enemy.PetID);
+                        command.Parameters.AddWithValue("@currentXP", enemy.CurrentXP);
+                        command.Parameters.AddWithValue("@currentHP", enemy.CurrentHP);
+                        command.Parameters.AddWithValue("@rosterSlot", enemy.RosterSlot);
+                        int numRows = command.ExecuteNonQuery();
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message.ToString());
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message.ToString());
+                }
             }
         }
 

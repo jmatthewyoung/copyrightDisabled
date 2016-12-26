@@ -37,6 +37,7 @@
             this.username = new System.Windows.Forms.PictureBox();
             this.password = new System.Windows.Forms.PictureBox();
             this.title = new System.Windows.Forms.PictureBox();
+            this.btnTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.username)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.title)).BeginInit();
@@ -126,6 +127,18 @@
             this.title.TabIndex = 9;
             this.title.TabStop = false;
             // 
+            // btnTest
+            // 
+            this.btnTest.Font = new System.Drawing.Font("Lucida Sans", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest.Location = new System.Drawing.Point(182, 470);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(606, 94);
+            this.btnTest.TabIndex = 10;
+            this.btnTest.TabStop = false;
+            this.btnTest.Text = "For Testing, Click Here";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -134,6 +147,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.title);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
@@ -165,5 +179,6 @@
         private System.Windows.Forms.PictureBox username;
         private System.Windows.Forms.PictureBox password;
         private System.Windows.Forms.PictureBox title;
+        private System.Windows.Forms.Button btnTest;
     }
 }

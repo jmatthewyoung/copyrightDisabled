@@ -65,5 +65,11 @@ namespace GoldTeamRules
             username.BackgroundImage = images["username"];
             password.BackgroundImage = images["password"];
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Ignore;
+            this.Close();
+        }
     }
 }

@@ -41,66 +41,84 @@ namespace GoldTeamRules
         {
             string conn = GoldTeamRules.Properties.Settings.Default.cnDb;
             int abilityID = 0;
-            using (SqlConnection connection = new SqlConnection(conn))
+            if (!frmMain.testModeActive)
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand("dbo.usp_Load_Ability_ID", connection);
-                command.Parameters.Clear();
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@petID", id);
-                command.Parameters.AddWithValue("@abilityNum", num);
-                command.Parameters.AddWithValue("@userID", frmMain.userID);
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(conn))
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("dbo.usp_Load_Ability_ID", connection);
+                    command.Parameters.Clear();
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@petID", id);
+                    command.Parameters.AddWithValue("@abilityNum", num);
+                    command.Parameters.AddWithValue("@userID", frmMain.userID);
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            abilityID = Int32.Parse(reader[0].ToString());
+                            while (reader.Read())
+                            {
+                                abilityID = Int32.Parse(reader[0].ToString());
+                            }
+                        }
+                    }
+                    command = new SqlCommand("dbo.usp_Load_Ability", connection);
+                    command.Parameters.Clear();
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@AbilityID", abilityID);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                name = reader[0].ToString();
+                                damage = Int32.Parse(reader[1].ToString());
+                                accuracy = Int32.Parse(reader[2].ToString());
+                            }
                         }
                     }
                 }
-                command = new SqlCommand("dbo.usp_Load_Ability", connection);
-                command.Parameters.Clear();
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@AbilityID", abilityID);
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            name = reader[0].ToString();
-                            damage = Int32.Parse(reader[1].ToString());
-                            accuracy = Int32.Parse(reader[2].ToString());
-                        }
-                    }
-                }  
+            }
+            else
+            {
+                name = "BITE";
+                damage = 100;
+                accuracy = 100;
             }
         }
 
         private void GetNewAbility(int id, int num)
         {
             string conn = GoldTeamRules.Properties.Settings.Default.cnDb;
-            using (SqlConnection connection = new SqlConnection(conn))
+            if (!frmMain.testModeActive)
             {
-                connection.Open();
-                SqlCommand command = new SqlCommand("dbo.usp_Load_Wild_Ability", connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@petID", id);
-                command.Parameters.AddWithValue("@abilityNum", num);
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (SqlConnection connection = new SqlConnection(conn))
                 {
-                    if (reader.HasRows)
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("dbo.usp_Load_Wild_Ability", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@petID", id);
+                    command.Parameters.AddWithValue("@abilityNum", num);
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            name = reader[0].ToString();
-                            damage = Int32.Parse(reader[1].ToString());
-                            accuracy = Int32.Parse(reader[2].ToString());
+                            while (reader.Read())
+                            {
+                                name = reader[0].ToString();
+                                damage = Int32.Parse(reader[1].ToString());
+                                accuracy = Int32.Parse(reader[2].ToString());
+                            }
                         }
                     }
-                }             
+                }
+            }
+            else
+            {
+                name = "BITE";
+                damage = 100;
+                accuracy = 100;
             }
         }
 
