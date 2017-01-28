@@ -1,0 +1,9 @@
+c:\users\matthew\documents\visual studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\bin\Debug\JamieTheRobot2.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.Properties.Resources.resources
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.csproj.GenerateResource.Cache
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.frmMain.resources
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\bin\Debug\JamieTheRobot2.exe
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\bin\Debug\JamieTheRobot2.pdb
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.exe
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\JamieTheRobot2\JamieTheRobot2\obj\Debug\JamieTheRobot2.pdb

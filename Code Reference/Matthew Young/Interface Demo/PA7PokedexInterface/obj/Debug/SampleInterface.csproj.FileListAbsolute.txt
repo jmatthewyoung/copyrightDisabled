@@ -1,0 +1,11 @@
+C:\Code\SampleInterface\SampleInterface\bin\Debug\SampleInterface.exe.config
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\bin\Debug\SampleInterface.exe.config
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\bin\Debug\SampleInterface.exe
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\bin\Debug\SampleInterface.pdb
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.csprojResolveAssemblyReference.cache
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.frmMain.resources
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.frmReport.resources
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.Properties.Resources.resources
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.csproj.GenerateResource.Cache
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.exe
+C:\Users\jperdue\Box Sync\MIS220\Assignments\PA7\PA7 Starter\SampleInterface\SampleInterface\obj\Debug\SampleInterface.pdb

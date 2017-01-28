@@ -1,0 +1,13 @@
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\bin\Debug\SampleInterface.exe.config
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\bin\Debug\SampleInterface.exe
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\bin\Debug\SampleInterface.pdb
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\PA7PokedexInterface.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\SampleInterface.Properties.Resources.resources
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\PA7PokedexInterface.csproj.GenerateResource.Cache
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\SampleInterface.exe
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\SampleInterface.pdb
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\PA7_Young_John.frmReport.resources
+C:\Users\Matthew\Downloads\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\PA7_Young_John.frmMain.resources
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\PA7 Pokedex Interface\PA7PokedexInterface\bin\Debug\SampleInterface.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\SampleInterface.exe
+C:\Users\Matthew\Documents\Visual Studio 2015\Projects\PA7 Pokedex Interface\PA7PokedexInterface\obj\Debug\SampleInterface.pdb
