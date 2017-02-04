@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app='app3' ng-cloak>
+    <head>
+        <title>AngularJS and Maven Web App Page 3</title>
+        <style>
+            [ng\:cloak], [ng-cloak], .ng-cloak {
+                display:none;
+            }
+        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <div id='groceryList' ng-controller='gListCtrl'>
+            <h3 class ='ListTitle'>{{groceries.length}} Groceries to Get</h3>
+            
+            <ol style ="margin: 0 0 -15px 0;">
+                <li>{{groceries[0].item}}</li>
+            </ol>
+            
+            <ol start ="2">
+                <li ng-repeat="grocery in groceries" ng-if="!$first">{{grocery.item}}</li>
+            </ol>
+            
+            <table>
+                <tr ng-repeat-start="grocery in groceries">
+                    <td>
+                        {{grocery.item}}
+                    </td>
+                </tr>
+                <tr ng-repeat-end>
+                    <td>
+                        {{grocery.purchased}}
+                    </td>
+                </tr>
+            </table>
+            
+            <label>Change first item: </label>
+            <input ng-model="groceries[0].item" />
+            
+            <h3>Grocery List</h3>
+            <div ng-include='Demo HTML Excerpts/ul.html'></div>
+            <label>
+            <input type='checkbox' ng-model='showList' />
+            Show Other List
+            </label>
+            
+            <ng-include src='getList()'></ng-include>
+        </div>
+
+        <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js">
+        </script>
+        <script src="JavaScript/demo3.js">
+        </script>
+    </body>
+</html>
