@@ -1,0 +1,6 @@
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\bin\Debug\IComparableExample.exe.config
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\bin\Debug\IComparableExample.exe
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\bin\Debug\IComparableExample.pdb
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\obj\Debug\IComparableExample.csprojResolveAssemblyReference.cache
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\obj\Debug\IComparableExample.exe
+c:\users\matthew\documents\visual studio 2015\Projects\IComparableExample\IComparableExample\obj\Debug\IComparableExample.pdb

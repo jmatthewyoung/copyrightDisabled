@@ -20,14 +20,14 @@ namespace BubbleSorting
             listings[2] = three;
             listings[3] = four;
 
-            Transaction t1 = new Transaction(listings[0], "Jan 4, 2001");
-            Transaction t2 = new Transaction(listings[1], "Jan 4, 2001");
-            Transaction t3 = new Transaction(listings[1], "Jan 4, 2001");
-            Transaction t4 = new Transaction(listings[2], "Jan 4, 2001");
-            Transaction t5 = new Transaction(listings[3], "Feb 1, 2004");
-            Transaction t6 = new Transaction(listings[3], "Feb 1, 2004");
-            Transaction t7 = new Transaction(listings[3], "Feb 1, 2004");
-            Transaction t8 = new Transaction(listings[3], "Feb 1, 2004");
+            Transaction t1 = new Transaction(listings[0], "Jan 4, 2001", "Mike");
+            Transaction t2 = new Transaction(listings[1], "Jan 3, 2001", "Moses");
+            Transaction t3 = new Transaction(listings[1], "Jan 2, 2001", "Mike");
+            Transaction t4 = new Transaction(listings[2], "Jan 4, 2001", "Mike");
+            Transaction t5 = new Transaction(listings[3], "Feb 5, 2004", "Eli");
+            Transaction t6 = new Transaction(listings[3], "Feb 6, 2004", "Eli");
+            Transaction t7 = new Transaction(listings[3], "Feb 8, 2004", "Moses");
+            Transaction t8 = new Transaction(listings[3], "Feb 2, 2004", "Moses");
             Transaction[] transactions = new Transaction[200];
             transactions[0] = t1;
             transactions[1] = t2;
@@ -38,8 +38,47 @@ namespace BubbleSorting
             transactions[6] = t7;
             transactions[7] = t8;
 
+            string reportMessage = "";          
 
-            String reportMessage = "";
+            for (int i = 0; i < transactions.Length; i++)
+            {
+                for (int j = i + 1; j < transactions.Length - 1; j++)
+                {
+                    if (transactions[j] != null)
+                    {
+                        if (transactions[i].Name.CompareTo(transactions[j].Name) == 0)
+                        {
+                            if (transactions[i].RentalDate.CompareTo(transactions[j].RentalDate) > 0) {
+                                Transaction temp = transactions[i];
+                                transactions[i] = transactions[j];
+                                transactions[j] = temp;
+                            }
+                        }
+                        else if(transactions[i].Name.CompareTo(transactions[j].Name) > 0)
+                        {
+                            Transaction temp = transactions[i];
+                            transactions[i] = transactions[j];
+                            transactions[j] = temp;
+                        }
+                    }
+                }
+            }
+
+
+
+            reportMessage += "Report 2\n";
+            reportMessage += "--------------\n";
+            for (int i = 0; i < transactions.Length; i++)
+            {
+                if(transactions[i] != null)
+                {
+                    reportMessage += String.Format("Name: {0} Date: {1}\n", transactions[i].Name, transactions[i].RentalDate.ToShortDateString());
+                }
+            }
+
+            Console.Out.Write(reportMessage);
+
+            reportMessage = "";
 
             Revenue[] revenues = new Revenue[200];
             int count = 0;
@@ -181,12 +220,14 @@ namespace BubbleSorting
         private Listing listing;
         private string rentalDateString;
         private DateTime rentalDate;
+        private string name;
 
-        public Transaction(Listing listing, string rentalDateString)
+        public Transaction(Listing listing, string rentalDateString, string name)
         {
             this.listing = listing;
             this.rentalDateString = rentalDateString;
-            this.rentalDate = DateTime.Parse(rentalDateString);
+            this.RentalDate = DateTime.Parse(rentalDateString);
+            this.Name = name;
         }
 
         public Listing Listing
@@ -225,6 +266,19 @@ namespace BubbleSorting
             set
             {
                 rentalDate = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
             }
         }
     }

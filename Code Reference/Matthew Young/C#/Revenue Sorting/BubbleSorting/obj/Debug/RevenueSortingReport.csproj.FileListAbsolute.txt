@@ -4,3 +4,9 @@ C:\Users\Matthew\Documents\Visual Studio 2015\Projects\BubbleSorting\BubbleSorti
 C:\Users\Matthew\Documents\Visual Studio 2015\Projects\RevenueSorting\BubbleSorting\bin\Debug\BubbleSorting.exe.config
 C:\Users\Matthew\Documents\Visual Studio 2015\Projects\RevenueSorting\BubbleSorting\obj\Debug\BubbleSorting.exe
 C:\Users\Matthew\Documents\Visual Studio 2015\Projects\RevenueSorting\BubbleSorting\obj\Debug\BubbleSorting.pdb
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\bin\Debug\BubbleSorting.exe.config
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\obj\Debug\BubbleSorting.exe
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\obj\Debug\BubbleSorting.pdb
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\bin\Debug\BubbleSorting.exe
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\bin\Debug\BubbleSorting.pdb
+C:\Users\Matthew\Dropbox\copyrightDisabled\Code Reference\Matthew Young\C#\Revenue Sorting\BubbleSorting\obj\Debug\RevenueSortingReport.csprojResolveAssemblyReference.cache
