@@ -41,8 +41,6 @@ namespace BubbleSorting
 
             String reportMessage = "";
 
-            transactions.OrderBy(o => o.RentalDate.Year).ThenBy(o => o.RentalDate.Month);
-
             Revenue[] revenues = new Revenue[200];
             int count = 0;
 
