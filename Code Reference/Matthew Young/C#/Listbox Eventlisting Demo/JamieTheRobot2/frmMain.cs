@@ -117,7 +117,10 @@ namespace JamieTheRobot2
 
         private void tbSpeed_Scroll(object sender, EventArgs e)
         {
-            timer.Interval = (1500 / tbSpeed.Value);
+            if (tbSpeed.Value != 0)
+            {
+                timer.Interval = (1500 / tbSpeed.Value);
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
