@@ -10,6 +10,7 @@ namespace BubbleSorting
     {
         static void Main(string[] args)
         {
+            //Data Fill
             Listing one = new Listing(4, 1.00);
             Listing two = new Listing(3, 2.00);
             Listing three = new Listing(2, 3.00);
@@ -38,8 +39,10 @@ namespace BubbleSorting
             transactions[6] = t7;
             transactions[7] = t8;
 
+            //Report 2
             string reportMessage = "";          
 
+            //Sorting
             for (int i = 0; i < transactions.Length; i++)
             {
                 for (int j = i + 1; j < transactions.Length - 1; j++)
@@ -65,7 +68,7 @@ namespace BubbleSorting
             }
 
 
-
+            //Printing
             reportMessage += "Report 2\n";
             reportMessage += "--------------\n";
             for (int i = 0; i < transactions.Length; i++)
@@ -78,8 +81,10 @@ namespace BubbleSorting
 
             Console.Out.Write(reportMessage);
 
+            //Report 3
             reportMessage = "";
 
+            //Calculating revenue
             Revenue[] revenues = new Revenue[200];
             int count = 0;
 
@@ -106,6 +111,7 @@ namespace BubbleSorting
             }
             revenues[count] = r1;
 
+            //Sorting
             for (int i = 0; i < revenues.Length; i++)
             {
                 for(int j = i + 1; j < revenues.Length - 1; j++)
@@ -121,6 +127,8 @@ namespace BubbleSorting
                     }
                 }
             }
+
+            //Printing
             reportMessage += "Report 3\n";
             reportMessage += "Revenue | Date\n";
             reportMessage += "--------------\n";
